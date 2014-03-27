@@ -1,2 +1,2 @@
-git remote add origin https://github.com/michaelye/DemoWhatIsNewComponent.git
+git remote add origin https://github.com/zhaojunfu2014/sysy-pub.git
 git push -u origin master
