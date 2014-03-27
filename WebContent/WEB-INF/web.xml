@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>zjf</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet> 
+  <servlet>
+    <servlet-name>CheckcodeServlet</servlet-name>
+    <servlet-class>com.zjf.cms.controllor.CheckcodeServlet</servlet-class>
+    <init-param>
+    	<param-name>width</param-name>
+    	<param-value>44</param-value>
+    </init-param>
+    <init-param>
+    	<param-name>height</param-name>
+    	<param-value>20</param-value>
+    </init-param>
+    <init-param>
+    	<param-name>number</param-name>
+    	<param-value>4</param-value>
+    </init-param>
+    <init-param>
+    	<param-name>codes</param-name>
+    	<param-value>ABCDEFGHIJKLMNOPQRSTUVWXYZ</param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>zjf</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+ <servlet-mapping>
+    <servlet-name>CheckcodeServlet</servlet-name>
+    <url-pattern>/checkcode.jpg</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+  </listener>
+  <!-- spring openSessionInView -->
+  <filter>
+    <filter-name>openSessionInViewFilter</filter-name>
+    <filter-class>
+        org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+    </filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>openSessionInViewFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
