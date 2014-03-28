@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.zjf.cms.dao.ArticleDao;
 /**
- * ндубйЩ╬щ╥цнй╤тоСй╣ож
- * @author ут©║╥Р
+ * Ф√┤Г╚═Ф∙╟Ф█╝Х╝©И≈╝Е╞╧Х╠║Е╝·Г▌╟
+ * @author Х╣╣Д©┼Е╓╚
  *
  * Aug 17, 2012
  */

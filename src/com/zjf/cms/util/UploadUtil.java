@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * ÉÏ´«¹¤¾ß
- * @author ÕÔ¿¡·ò
+ * ä¸Šä¼ å·¥å…·
+ * @author èµµä¿Šå¤«
  *
  * Aug 22, 2012
  */
@@ -26,7 +26,7 @@ public class UploadUtil {
 	private String vPath;
 	private HttpServletRequest req;
 	/**
-	 * ´æÈëÎÄ¼þÏµÍ³
+	 * å­˜å…¥æ–‡ä»¶ç³»ç»Ÿ
 	 * @return
 	 * @throws IOException
 	 */
@@ -42,7 +42,7 @@ public class UploadUtil {
 		return vPath;
 	}
 	/**
-	 * ÉÏ´«¹¤¾ß-¹¹Ôì·½·¨
+	 * ä¸Šä¼ å·¥å…·-æž„é€ æ–¹æ³•
 	 * @param u
 	 * @param req
 	 * @param dir
@@ -62,7 +62,7 @@ public class UploadUtil {
 		this.req = req;
 	}
 	/**
-	 * ´ÓÎÄ¼þÏµÍ³ÖÐÉ¾³ý¸½¼þ
+	 * ä»Žæ–‡ä»¶ç³»ç»Ÿä¸­åˆ é™¤é™„ä»¶
 	 * @param path
 	 */
 	public void deleteFromFileSystem(String path){

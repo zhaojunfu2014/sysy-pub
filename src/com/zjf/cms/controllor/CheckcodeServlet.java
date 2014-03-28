@@ -21,8 +21,8 @@ import org.apache.commons.logging.LogFactory;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 /**
- * ÑéÖ¤Âëservlet
- * @author ÕÔ¿¡·ò
+ * éªŒè¯ç servlet
+ * @author èµµä¿Šå¤«
  *
  * Aug 29, 2012
  */
@@ -30,8 +30,8 @@ public class CheckcodeServlet extends HttpServlet {
 
 	private int width;
 	private int height;
-	private int number; //ÏÔÊ¾¶àÉÙ¸ö×Ö·û
-	private String codes; //ÓĞÄÄĞ©×Ö·û¿É¹©Ñ¡Ôñ
+	private int number; //æ˜¾ç¤ºå¤šå°‘ä¸ªå­—ç¬¦
+	private String codes; //æœ‰å“ªäº›å­—ç¬¦å¯ä¾›é€‰æ‹©
 	private Log log = LogFactory.getLog(getClass());
 	
 	@Override
@@ -48,25 +48,25 @@ public class CheckcodeServlet extends HttpServlet {
 		response.setContentType("image/jpeg");
 		
 		
-		//´´½¨Ò»ÕÅÍ¼Æ¬
+		//åˆ›å»ºä¸€å¼ å›¾ç‰‡
 		BufferedImage image = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = image.createGraphics();
 		
-		//´´½¨°×É«±³¾°
+		//åˆ›å»ºç™½è‰²èƒŒæ™¯
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, width, height);
 		
-		//»­ºÚ±ß¿ò
+		//ç”»é»‘è¾¹æ¡†
 		g.setColor(Color.BLACK);
 		g.drawRect(0, 0, width-1, height-1);
 		
 		Random random = new Random();
 		
-		//Ã¿¸ö×Ö·ûÕ¼¾İµÄ¿í¶È
+		//æ¯ä¸ªå­—ç¬¦å æ®çš„å®½åº¦
 		int x = (width - 1) / number;
 		int y = height -4;
 		String checkcode="";
-		//Ëæ»úÉú³É×Ö·û
+		//éšæœºç”Ÿæˆå­—ç¬¦
 		for(int i=0; i<number; i++){
 			String code = String.valueOf( codes.charAt( random.nextInt(codes.length())) );
 			checkcode+=code;
@@ -86,7 +86,7 @@ public class CheckcodeServlet extends HttpServlet {
 		session.setAttribute("checkcode", checkcode);
 		
 		OutputStream out = response.getOutputStream();
-		//½«Í¼Æ¬×ª»»ÎªJPEGÀàĞÍ
+		//å°†å›¾ç‰‡è½¬æ¢ä¸ºJPEGç±»å‹
 		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
 		encoder.encode(image);
 
@@ -96,7 +96,7 @@ public class CheckcodeServlet extends HttpServlet {
 	}
 	
 	/**
-	 * ²úÉúÒ»¸ö´Óminµ½maxÖ®¼äµÄËæ»úÊı
+	 * äº§ç”Ÿä¸€ä¸ªä»minåˆ°maxä¹‹é—´çš„éšæœºæ•°
 	 * @param min
 	 * @param max
 	 * @return

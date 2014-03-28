@@ -1,6 +1,6 @@
 package com.zjf.cms.dao;
 /**
- * 临时文章数据访问接口
+ * 涓存椂鏂囩珷鏁版嵁璁块棶鎺ュ彛
  * @author zjf
  *
  */

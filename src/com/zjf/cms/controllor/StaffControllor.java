@@ -26,8 +26,8 @@ import com.zjf.cms.entity.Staff;
 import com.zjf.cms.util.MD5Util;
 
 /**
- * Ô±¹¤¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * å‘˜å·¥æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 24, 2012
  */
@@ -37,7 +37,7 @@ public class StaffControllor {
 	@Resource(name="staffDao")
 	private StaffDao staffDao;
 	/**
-	 * ÏÔÊ¾Ô±¹¤·ÖÒ³
+	 * æ˜¾ç¤ºå‘˜å·¥åˆ†é¡µ
 	 * @param req
 	 * @param model
 	 * @return
@@ -51,14 +51,14 @@ public class StaffControllor {
 			firstIndex  = 0;
 		}finally{
 			/*
-			 * ²éÑ¯Ìõ¼ş
+			 * æŸ¥è¯¢æ¡ä»¶
 			 */
 			Set<Order> orders =  new LinkedHashSet<Order>();
 			orders.add(Order.desc("regDate"));
 			List<Staff> datas = staffDao.getScrollData(Staff.class, firstIndex, 20, null, orders);
 			int total = staffDao.getTableSize(Staff.class, null);
 			/*
-			 * ´æ·ÅÊı¾İµ½view
+			 * å­˜æ”¾æ•°æ®åˆ°view
 			 */
 			model.addAttribute("datas", datas);
 			model.addAttribute("total", total);
@@ -69,7 +69,7 @@ public class StaffControllor {
 		
 	}
 	/**
-	 * Ìí¼ÓĞÂÔ±¹¤-½çÃæ
+	 * æ·»åŠ æ–°å‘˜å·¥-ç•Œé¢
 	 * @param menu
 	 * @return
 	 */
@@ -79,7 +79,7 @@ public class StaffControllor {
 		return "admin/staff/add";
 	}
 	/**
-	 * Ìí¼ÓĞÂÔ±¹¤
+	 * æ·»åŠ æ–°å‘˜å·¥
 	 * @param menu
 	 * @return
 	 */
@@ -94,13 +94,13 @@ public class StaffControllor {
 			staff.setPassword(password);
 			staffDao.save(staff);
 		}catch(Exception e){
-			model.addAttribute("usermessage", "²»ÄÜÖØ¸´Ìí¼Ó");
+			model.addAttribute("usermessage", "ä¸èƒ½é‡å¤æ·»åŠ ");
 			return "admin/staff/add";
 		}
 		return InternalResourceViewResolver.REDIRECT_URL_PREFIX+"/admin/staff/list";
 	}
 	/**
-	 * ¸üĞÂÔ±¹¤-½çÃæ
+	 * æ›´æ–°å‘˜å·¥-ç•Œé¢
 	 * @param id
 	 * @param model
 	 * @return
@@ -112,7 +112,7 @@ public class StaffControllor {
 		return "admin/staff/edit";
 	}
 	/**
-	 * ¸üĞÂÔ±¹¤
+	 * æ›´æ–°å‘˜å·¥
 	 * @param id
 	 * @param model
 	 * @return
@@ -128,7 +128,7 @@ public class StaffControllor {
 		return "redirect:/admin/staff/list";
 	}
 	/**
-	 * É¾³ıÔ±¹¤
+	 * åˆ é™¤å‘˜å·¥
 	 * @param id
 	 * @return
 	 */

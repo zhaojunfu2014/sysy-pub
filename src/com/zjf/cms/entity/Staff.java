@@ -16,40 +16,40 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * Ô±¹¤
- * @author ÕÔ¿¡·ò
+ * å‘˜å·¥
+ * @author èµµä¿Šå¤«
  *
  * Aug 24, 2012
  */
 @Entity
 public class Staff {
-	//±àºÅ
+	//ç¼–å·
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;
-	//ÓÃ»§Ãû
+	//ç”¨æˆ·å
 	@Column(name="username",unique = true,nullable = false)
-	@NotEmpty(message="²»ÄÜÎª¿Õ")
-	@Size(max=30,message="×î´ó³¤¶ÈÎª30")
+	@NotEmpty(message="ä¸èƒ½ä¸ºç©º")
+	@Size(max=30,message="æœ€å¤§é•¿åº¦ä¸º30")
 	private String username;
-	//ÃÜÂë
+	//å¯†ç 
 	@Column(name="password")
-	@NotEmpty(message="²»ÄÜÎª¿Õ")
-	@Size(max=30,min=6,message="×îĞ¡³¤¶ÈÎª6£¬×î´ó³¤¶ÈÎª30")
+	@NotEmpty(message="ä¸èƒ½ä¸ºç©º")
+	@Size(max=30,min=6,message="æœ€å°é•¿åº¦ä¸º6ï¼Œæœ€å¤§é•¿åº¦ä¸º30")
 	private String password;
-	//È¨ÏŞÖµ
+	//æƒé™å€¼
 	@Column(name="privilege")
-	@NotEmpty(message="²»ÄÜÎª¿Õ")
+	@NotEmpty(message="ä¸èƒ½ä¸ºç©º")
 	private String privilege;
-	//ÊÇ·ñÆôÓÃÕËºÅ
+	//æ˜¯å¦å¯ç”¨è´¦å·
 	@Column(name="enable")
 	private boolean enable;
-	//×¢²áÈÕÆÚ
+	//æ³¨å†Œæ—¥æœŸ
 	@Column(name="regDate")
 	private Date regDate = new Date();
-	//ÁÙÊ±ÎÄÕÂ
+	//ä¸´æ—¶æ–‡ç« 
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="tempId")
 	private TempArticle temp;

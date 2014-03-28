@@ -10,8 +10,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.zjf.cms.entity.Staff;
 import com.zjf.cms.util.PrivilegeUtil;
 /**
- * È¨ÏŞÀ¹½ØÆ÷
- * @author ÕÔ¿¡·ò
+ * æƒé™æ‹¦æˆªå™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 24, 2012
  */
@@ -28,18 +28,18 @@ public class PrivilegeInterceptor extends HandlerInterceptorAdapter {
 		PrivilegeUtil util = new PrivilegeUtil(request);
 		Staff loginUser = null;
 		/*
-		 * ºóÌ¨ÇëÇó
+		 * åå°è¯·æ±‚
 		 */
 		if(path.startsWith("/admin")){
 			/*
-			 * ÅĞ¶ÏÊÇ·ñµÇÂ¼
+			 * åˆ¤æ–­æ˜¯å¦ç™»å½•
 			 */
 			if(util.isLogin()){
 				loginUser = util.getLoginUser();
 				String userPrivilege = loginUser.getPrivilege();
 				util = new PrivilegeUtil(path,userPrivilege,request);
 				/*
-				 * È¨ÏŞ²»×ã
+				 * æƒé™ä¸è¶³
 				 */
 				if(!util.check()){
 					request.getRequestDispatcher("/miss.jsp").forward(request, response);

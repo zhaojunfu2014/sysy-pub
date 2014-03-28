@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.zjf.cms.dao.TempArticleDao;
 /**
- * 临时文章数据访问对象
+ * 涓存椂鏂囩珷鏁版嵁璁块棶瀵硅薄
  * @author zjf
  *
  */

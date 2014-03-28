@@ -10,44 +10,44 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * ÏîÄ¿½ø¶ÈÃ÷Ï¸
- * @author ÕÔ¿¡·ò
+ * é¡¹ç›®è¿›åº¦æ˜ç»†
+ * @author èµµä¿Šå¤«
  *
  * Aug 28, 2012
  */
 @Entity
 public class ProjectDetail {
-	//±àºÅ
+	//ç¼–å·
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;
-	//ÏîÄ¿id
+	//é¡¹ç›®id
 	@Column(name="projectId")
 	private int projectId;
 	/*
-	 * Ã÷Ï¸Àà±ğ
-	 * 1£ºÖÊ¼àÊÖĞø
-	 * 2£ºÏîÄ¿»®·Ö
-	 * 3£º¼à¶½¼Æ»®£¨½»µ×£©
-	 * 4£ºÖÊÁ¿¼à¶½±¨¸æ
+	 * æ˜ç»†ç±»åˆ«
+	 * 1ï¼šè´¨ç›‘æ‰‹ç»­
+	 * 2ï¼šé¡¹ç›®åˆ’åˆ†
+	 * 3ï¼šç›‘ç£è®¡åˆ’ï¼ˆäº¤åº•ï¼‰
+	 * 4ï¼šè´¨é‡ç›‘ç£æŠ¥å‘Š
 	 */
 	@Column(name="type")
 	private int type;
-	//Ã÷Ï¸ÃèÊö
+	//æ˜ç»†æè¿°
 	@Column(name="detail")
 	private String detail;
-	//¾ßÌåÄÚÈİ
+	//å…·ä½“å†…å®¹
 	@Column(name="info",length=999999999)
 	private String info;
-	//ÊÇ·ñÍê³É
+	//æ˜¯å¦å®Œæˆ
 	@Column(name="finish")
 	private boolean finish;
-	//¸üĞÂÊ±¼ä
+	//æ›´æ–°æ—¶é—´
 	@Column(name="updateDate")
 	private Date updateDate = new Date();
-	//ÊÇ·ñ¿É¼û
+	//æ˜¯å¦å¯è§
 	@Column(name="visible")
 	private Boolean visible=true;
 	public int getId() {

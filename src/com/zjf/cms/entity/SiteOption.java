@@ -1,14 +1,14 @@
 package com.zjf.cms.entity;
 /**
- * ÍøÕ¾ÅäÖÃ
- * @author ÕÔ¿¡·ò
+ * ç½‘ç«™é…ç½®
+ * @author èµµä¿Šå¤«
  *
  * Aug 26, 2012
  */
 public class SiteOption {
-	//ÍøÕ¾Ãû³Æ
+	//ç½‘ç«™åç§°
 	private String siteName;
-	//ÉÏ´«ÀàĞÍ
+	//ä¸Šä¼ ç±»å‹
 	private String uploadType;
 	public String getSiteName() {
 		return siteName;

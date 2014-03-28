@@ -40,8 +40,8 @@ import com.zjf.cms.entity.TempArticle;
 import com.zjf.cms.util.PrivilegeUtil;
 
 /**
- * ÎÄÕÂ¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * æ–‡ç« æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 20, 2012
  */
@@ -58,7 +58,7 @@ public class ArticleControllor {
 	private TempArticleDao tempDao;
 	private Log log = LogFactory.getLog(getClass());
 	/**
-	 * ÏÔÊ¾ÎÄÕÂ·ÖÒ³
+	 * æ˜¾ç¤ºæ–‡ç« åˆ†é¡µ
 	 * @param firstIndex
 	 * @param model
 	 * @return
@@ -72,7 +72,7 @@ public class ArticleControllor {
 			firstIndex  = 0;
 		}finally{
 			/*
-			 * ²éÑ¯Ìõ¼ş
+			 * æŸ¥è¯¢æ¡ä»¶
 			 */
 			Set<Order> orders =  new LinkedHashSet<Order>();
 			orders.add(Order.desc("pubDate"));
@@ -82,7 +82,7 @@ public class ArticleControllor {
 			criterions1.add(Restrictions.eq("isRoot", true));
 			List<Menu> menus = menuDao.getScrollData(Menu.class, criterions1);
 			/*
-			 * ´æ·ÅÊı¾İµ½view
+			 * å­˜æ”¾æ•°æ®åˆ°view
 			 */
 			model.addAttribute("datas", datas);
 			model.addAttribute("total", total);
@@ -94,7 +94,7 @@ public class ArticleControllor {
 		
 	}
 	/**
-	 * ÏÔÊ¾ÎÄÕÂ·ÖÒ³-°´²Ëµ¥
+	 * æ˜¾ç¤ºæ–‡ç« åˆ†é¡µ-æŒ‰èœå•
 	 * @param id
 	 * @param model
 	 * @return
@@ -108,7 +108,7 @@ public class ArticleControllor {
 			firstIndex  = 0;
 		}finally{
 			/*
-			 * ²éÑ¯Ìõ¼ş
+			 * æŸ¥è¯¢æ¡ä»¶
 			 */
 			Set<Order> orders =  new LinkedHashSet<Order>();
 			orders.add(Order.desc("pubDate"));
@@ -121,7 +121,7 @@ public class ArticleControllor {
 			criterions1.add(Restrictions.eq("isRoot", true));
 			List<Menu> menus = menuDao.getScrollData(Menu.class, criterions1);
 			/*
-			 * ´æ·ÅÊı¾İµ½view
+			 * å­˜æ”¾æ•°æ®åˆ°view
 			 */
 			model.addAttribute("datas", datas);
 			model.addAttribute("total", total);
@@ -133,7 +133,7 @@ public class ArticleControllor {
 		return "admin/article/listMenu";
 	}
 	/**
-	 * ÏÔÊ¾ÎÄÕÂ·ÖÒ³-°´±êÌâ
+	 * æ˜¾ç¤ºæ–‡ç« åˆ†é¡µ-æŒ‰æ ‡é¢˜
 	 * @param id
 	 * @param model
 	 * @return
@@ -147,7 +147,7 @@ public class ArticleControllor {
 			firstIndex  = 0;
 		}finally{
 			/*
-			 * ²éÑ¯Ìõ¼ş
+			 * æŸ¥è¯¢æ¡ä»¶
 			 */
 			Set<Order> orders =  new LinkedHashSet<Order>();
 			orders.add(Order.desc("pubDate"));
@@ -160,7 +160,7 @@ public class ArticleControllor {
 			criterions1.add(Restrictions.eq("isRoot", true));
 			List<Menu> menus = menuDao.getScrollData(Menu.class, criterions1);
 			/*
-			 * ´æ·ÅÊı¾İµ½view
+			 * å­˜æ”¾æ•°æ®åˆ°view
 			 */
 			model.addAttribute("datas", datas);
 			model.addAttribute("total", total);
@@ -172,7 +172,7 @@ public class ArticleControllor {
 		return "admin/article/listTitle";
 	}
 	/**
-	 * ·¢±íÎÄÕÂ-½çÃæ
+	 * å‘è¡¨æ–‡ç« -ç•Œé¢
 	 * @param menuId
 	 * @return
 	 */
@@ -186,7 +186,7 @@ public class ArticleControllor {
 		return "admin/article/pub";
 	}
 	/**
-	 * ·¢±íÎÄÕÂ
+	 * å‘è¡¨æ–‡ç« 
 	 * @param menuId
 	 * @return
 	 */
@@ -203,7 +203,7 @@ public class ArticleControllor {
 		return "redirect:/admin/article/list";
 	}
 	/**
-	 * ´æ´¢ÁÙÊ±ÎÄÕÂ
+	 * å­˜å‚¨ä¸´æ—¶æ–‡ç« 
 	 * @param tempArticle
 	 * @param model
 	 * @return
@@ -227,12 +227,12 @@ public class ArticleControllor {
 		}
 		staffDao.update(staff);
 		Map<String, Object> modelMap = new HashMap<String, Object>(3);
-		String success = "×Ô¶¯±£´æ:"+new Date().toLocaleString();
+		String success = "è‡ªåŠ¨ä¿å­˜:"+new Date().toLocaleString();
 		modelMap.put("success", success);  
 		return modelMap;  
 	}
 	/**
-	 * »ñÈ¡ÁÙÊ±ÎÄÕÂ
+	 * è·å–ä¸´æ—¶æ–‡ç« 
 	 * @param req
 	 * @return
 	 */
@@ -254,7 +254,7 @@ public class ArticleControllor {
 		return modelMap;
 	}
 	/**
-	 * É¾³ıÁÙÊ±ÎÄÕÂ
+	 * åˆ é™¤ä¸´æ—¶æ–‡ç« 
 	 */
 	public void deleteTemp(HttpServletRequest req){
 		PrivilegeUtil util = new PrivilegeUtil(req);
@@ -268,7 +268,7 @@ public class ArticleControllor {
 		}
 	}
 	/**
-	 * ±à¼­ÎÄÕÂ-½çÃæ
+	 * ç¼–è¾‘æ–‡ç« -ç•Œé¢
 	 * @param id
 	 * @param model
 	 * @return
@@ -284,7 +284,7 @@ public class ArticleControllor {
 		return "admin/article/edit";
 	}
 	/**
-	 * ±à¼­ÎÄÕÂ
+	 * ç¼–è¾‘æ–‡ç« 
 	 * @param id
 	 * @param model
 	 * @return
@@ -295,11 +295,11 @@ public class ArticleControllor {
 			return "redirect:/admin/article/edit/"+id;
 		}
 		/*
-		 * ´ÓÊı¾İ¿âÖĞÈ¡³ö¶ÔÓ¦idµÄÎÄÕÂ
+		 * ä»æ•°æ®åº“ä¸­å–å‡ºå¯¹åº”idçš„æ–‡ç« 
 		 */
 		Article data = articleDao.fetch(Article.class, id);
 		/*
-		 * ±à¼­ÎÄÕÂÊı¾İ
+		 * ç¼–è¾‘æ–‡ç« æ•°æ®
 		 */
 		data.setTitle(article.getTitle());
 		data.setContent(article.getContent());
@@ -316,14 +316,14 @@ public class ArticleControllor {
 		Menu m = menuDao.load(Menu.class, menuId);
 		data.setMenu(m);
 		/*
-		 * ³Ö¾Ã»¯µ½Êı¾İ¿â
+		 * æŒä¹…åŒ–åˆ°æ•°æ®åº“
 		 */
 		articleDao.update(data);
 		deleteTemp(req);
 		return "redirect:/admin/article/list";
 	}
 	/**
-	 * É¾³ıÎÄÕÂ
+	 * åˆ é™¤æ–‡ç« 
 	 * @param id
 	 * @param model
 	 * @return
@@ -331,10 +331,10 @@ public class ArticleControllor {
 	@RequestMapping(value="/delete/{id}",method=RequestMethod.GET)
 	public String delete(@PathVariable long id,HttpServletRequest req){
 		/*
-		 * ´ÓÊı¾İ¿âÖĞÈ¡³ö¶ÔÓ¦idµÄÎÄÕÂ
+		 * ä»æ•°æ®åº“ä¸­å–å‡ºå¯¹åº”idçš„æ–‡ç« 
 		 */
 		Article data = articleDao.fetch(Article.class, id);
-		 /* ´ÓÊı¾İ¿âÖĞÉ¾³ı
+		 /* ä»æ•°æ®åº“ä¸­åˆ é™¤
 		 */
 		@SuppressWarnings("unused")
 		String referer = req.getHeader("Referer");
@@ -344,7 +344,7 @@ public class ArticleControllor {
 		return "redirect:"+referer;
 	}
 	/**
-	 * Òş²Ø
+	 * éšè—
 	 * @param articleId
 	 * @return
 	 */
@@ -358,7 +358,7 @@ public class ArticleControllor {
 		return "redirect:"+referer;
 	}
 	/**
-	 * Òş²Ø
+	 * éšè—
 	 * @param articleId
 	 * @return
 	 */

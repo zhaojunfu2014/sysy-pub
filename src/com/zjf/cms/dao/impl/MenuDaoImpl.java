@@ -4,8 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.zjf.cms.dao.MenuDao;
 /**
- * ²Ëµ¥Êı¾İ·ÃÎÊ¶ÔÏóÊµÏÖ
- * @author ÕÔ¿¡·ò
+ * èœå•æ•°æ®è®¿é—®å¯¹è±¡å®ç°
+ * @author èµµä¿Šå¤«
  *
  * Aug 23, 2012
  */

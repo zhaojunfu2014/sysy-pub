@@ -9,8 +9,8 @@ import com.zjf.cms.entity.SiteOption;
 import com.zjf.cms.util.ConfigUtil;
 
 /**
- * ÅäÖÃ¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * é…ç½®æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 26, 2012
  */
@@ -18,7 +18,7 @@ import com.zjf.cms.util.ConfigUtil;
 @RequestMapping("/admin/option")
 public class OptionControllor {
 	/**
-	 * ÏÔÊ¾ÅäÖÃÁĞ±í
+	 * æ˜¾ç¤ºé…ç½®åˆ—è¡¨
 	 * @param model
 	 * @return
 	 */
@@ -33,7 +33,7 @@ public class OptionControllor {
 		
 	}
 	/**
-	 * ĞŞ¸ÄÅäÖÃ
+	 * ä¿®æ”¹é…ç½®
 	 * @param option
 	 * @return
 	 */

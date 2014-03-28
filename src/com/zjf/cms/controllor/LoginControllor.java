@@ -20,8 +20,8 @@ import com.zjf.cms.util.MD5Util;
 import com.zjf.cms.util.PrivilegeUtil;
 
 /**
- * µÇÂ¼¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * ç™»å½•æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 27, 2012
  */
@@ -37,39 +37,39 @@ public class LoginControllor {
 		log.debug(checkcode1==null);
 		log.debug(checkcode==null);
 		/*
-		 * ÑéÖ¤Âë²»Ò»ÖÂ
+		 * éªŒè¯ç ä¸ä¸€è‡´
 		 */
 		if(checkcode1==null ||!checkcode1.toLowerCase().equals(checkcode.toLowerCase())){
-			req.setAttribute("codemessage", "ÑéÖ¤Âë²»ÕıÈ·");
+			req.setAttribute("codemessage", "éªŒè¯ç ä¸æ­£ç¡®");
 			req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, rep);
-			log.debug("ÑéÖ¤Âë²»ÕıÈ·");
+			log.debug("éªŒè¯ç ä¸æ­£ç¡®");
 			return null;
 		}
 		Staff data = staffDao.fetchByUsername(username);
 //		log.debug(data.getUsername());
 		PrivilegeUtil util = new PrivilegeUtil(req);
 		/*
-		 * ÓÃ»§ÃûÔÚÊı¾İ¿âÖĞ´æÔÚ
+		 * ç”¨æˆ·ååœ¨æ•°æ®åº“ä¸­å­˜åœ¨
 		 */
 		if(data!=null){
 			String dataPass = MD5Util.MD5Encode(password);
 			/*
-			 * ÇÒÃÜÂëÕıÈ·
+			 * ä¸”å¯†ç æ­£ç¡®
 			 */
 			log.debug(data.getPassword()+"\t"+dataPass);
 			if(data.getPassword().equals(dataPass)){
 				util.login(data);
 				return "redirect:/admin/main";
 			}else{
-				req.setAttribute("passmessage", "ÃÜÂë²»ÕıÈ·");
+				req.setAttribute("passmessage", "å¯†ç ä¸æ­£ç¡®");
 				req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, rep);
-				log.debug("ÃÜÂë²»ÕıÈ·");
+				log.debug("å¯†ç ä¸æ­£ç¡®");
 				return null;
 			}
 		}else{
-			req.setAttribute("usermessage", "²»´æÔÚÓÃ»§");
+			req.setAttribute("usermessage", "ä¸å­˜åœ¨ç”¨æˆ·");
 			req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, rep);
-			log.debug("ÓÃ»§Ãû²»´æÔÚ");
+			log.debug("ç”¨æˆ·åä¸å­˜åœ¨");
 			return null;
 		}
 	}

@@ -17,8 +17,8 @@ import org.apache.commons.logging.LogFactory;
 import com.zjf.cms.dao.AttachmentDao;
 
 /**
- * ÅäÖÃÎÄ¼ş¹¤¾ß
- * @author ÕÔ¿¡·ò
+ * é…ç½®æ–‡ä»¶å·¥å…·
+ * @author èµµä¿Šå¤«
  *
  * Aug 23, 2012
  */
@@ -26,7 +26,7 @@ public class ConfigUtil {
 	private Properties prop;
 	private Log log = LogFactory.getLog(getClass());
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
 	public ConfigUtil() {
 		prop = new Properties();
@@ -42,7 +42,7 @@ public class ConfigUtil {
 		
 	}
 	/**
-	 * »ñÈ¡×Ö·û´®Öµ
+	 * è·å–å­—ç¬¦ä¸²å€¼
 	 * @param key
 	 * @return
 	 */
@@ -50,7 +50,7 @@ public class ConfigUtil {
 		return (String) prop.get(key);
 	}
 	/**
-	 * »ñÈ¡intÖµ
+	 * è·å–intå€¼
 	 * @param key
 	 * @return
 	 */
@@ -60,7 +60,7 @@ public class ConfigUtil {
 		return value;
 	}
 	/**
-	 * »ñÈ¡ÔÊĞíÉÏ´«µÄÀàĞÍ
+	 * è·å–å…è®¸ä¸Šä¼ çš„ç±»å‹
 	 * @return
 	 */
 	public List<String> getUploadType(){

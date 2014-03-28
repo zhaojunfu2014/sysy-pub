@@ -28,8 +28,8 @@ import com.zjf.cms.entity.ProjectDetail;
 import com.zjf.cms.entity.ProjectInfo;
 
 /**
- * ½çÃæ¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * ç•Œé¢æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 15, 2012
  */
@@ -45,7 +45,7 @@ public class UiControllor {
 	@Resource(name="projectDetailDao")
 	private ProjectDetailDao projectDetailDao;
 	/**
-	 * Ò³ÃæµÄÊı¾İÒÀÀµ
+	 * é¡µé¢çš„æ•°æ®ä¾èµ–
 	 * @param model
 	 */
 	public void dataSend(Model model){
@@ -69,7 +69,7 @@ public class UiControllor {
 		model.addAttribute("isoDate", new Date());
 	}
 	/**
-	 * Ç°Ì¨Ê×Ò³
+	 * å‰å°é¦–é¡µ
 	 * @return
 	 */
 	@RequestMapping
@@ -79,7 +79,7 @@ public class UiControllor {
 		return "index";
 	}
 	/**
-	 * ÁĞ±í
+	 * åˆ—è¡¨
 	 * @param id
 	 * @param model
 	 * @return
@@ -93,14 +93,14 @@ public class UiControllor {
 			firstIndex  = 0;
 		}finally{
 			/*
-			 * Êı¾İĞèÒª
+			 * æ•°æ®éœ€è¦
 			 */
 			
 			dataSend(model);
 			Menu thisMenu = menuDao.load(Menu.class, id);
 			
 			/*
-			 * ²éÑ¯Ìõ¼ş
+			 * æŸ¥è¯¢æ¡ä»¶
 			 */
 			Set<Order> orders1 =  new LinkedHashSet<Order>();
 			orders1.add(Order.desc("pubDate"));
@@ -108,14 +108,14 @@ public class UiControllor {
 			criterions1.add(Restrictions.eq("menu", thisMenu));
 			List<Article> datas = articleDao.getScrollData(Article.class, firstIndex, 20, criterions1, orders1);
 			/*
-			 * Èç¹ûÁĞ±íÖĞÖ»ÓĞÒ»ÆªÎÄÕÂ£¬ÔòÌø×ªµ½ÏêÏ¸Ò³Ãæ
+			 * å¦‚æœåˆ—è¡¨ä¸­åªæœ‰ä¸€ç¯‡æ–‡ç« ï¼Œåˆ™è·³è½¬åˆ°è¯¦ç»†é¡µé¢
 			 
 			if(datas.size()==1){
 				return "redirect:/detail/"+datas.get(0).getId();
 			}*/
 			int total = articleDao.getTableSize(Article.class, criterions1);
 			/*
-			 * ´æ·ÅÊı¾İµ½view
+			 * å­˜æ”¾æ•°æ®åˆ°view
 			 */
 			model.addAttribute("datas", datas);
 			model.addAttribute("total", total);
@@ -127,7 +127,7 @@ public class UiControllor {
 		
 	}
 	/**
-	 * ÎÄÕÂÏêÏ¸ĞÅÏ¢
+	 * æ–‡ç« è¯¦ç»†ä¿¡æ¯
 	 * @param id
 	 * @param model
 	 * @return
@@ -135,7 +135,7 @@ public class UiControllor {
 	@RequestMapping(value="detail/{id}")
 	public String detail(@PathVariable long id,Model model){
 		/*
-		 * Êı¾İĞèÒª
+		 * æ•°æ®éœ€è¦
 		 */
 		dataSend(model);
 		Article data = articleDao.fetch(Article.class, id);
@@ -145,7 +145,7 @@ public class UiControllor {
 		return "detail";
 	}
 	/**
-	 *	ËİÔ´²éÑ¯
+	 *	æº¯æºæŸ¥è¯¢
 	 * @param req
 	 * @param model
 	 * @return
@@ -160,19 +160,19 @@ public class UiControllor {
 //			firstIndex  = 0;
 //		}finally{
 //			/*
-//			 * Êı¾İĞèÒª
+//			 * æ•°æ®éœ€è¦
 //			 */
 //			
 //			dataSend(model);
 //			/*
-//			 * ²éÑ¯Ìõ¼ş
+//			 * æŸ¥è¯¢æ¡ä»¶
 //			 */
 //			Set<Order> orders =  new LinkedHashSet<Order>();
 //			orders.add(Order.desc("startDate"));
 //			List<ProjectInfo> datas = projectInfoDao.getScrollData(ProjectInfo.class, firstIndex, 20, null, orders);
 //			int total  = projectInfoDao.getTableSize(ProjectInfo.class, null);
 //			/*
-//			 * ´¦ÀíÏîÄ¿Íê³ÉÇé¿ö
+//			 * å¤„ç†é¡¹ç›®å®Œæˆæƒ…å†µ
 //			 */
 //			for(ProjectInfo pjf:datas){
 //				for(int t=1;t<=4;t++){
@@ -195,13 +195,13 @@ public class UiControllor {
 		return "listTrace";
 	}
 	/**
-	 * Õ¾ÄÚËÑË÷
+	 * ç«™å†…æœç´¢
 	 * @return
 	 */
 	@RequestMapping(value="/search",method=RequestMethod.POST)
 	public String search(HttpServletRequest req,String search,Model model){
 		/*
-		 * Êı¾İĞèÒª
+		 * æ•°æ®éœ€è¦
 		 */
 		
 		dataSend(model);
@@ -211,7 +211,7 @@ public class UiControllor {
 		}catch(Exception e){
 			firstIndex  = 0;
 		}finally{
-		/* ²éÑ¯Ìõ¼ş
+		/* æŸ¥è¯¢æ¡ä»¶
 		 */
 		Set<Order> orders =  new LinkedHashSet<Order>();
 		orders.add(Order.desc("pubDate"));
@@ -220,7 +220,7 @@ public class UiControllor {
 		List<Article> datas = articleDao.getScrollData(Article.class, firstIndex, -1, criterions, orders);
 		int total = articleDao.getTableSize(Article.class, criterions);
 		/*
-		 * ´æ·ÅÊı¾İµ½view
+		 * å­˜æ”¾æ•°æ®åˆ°view
 		 */
 		model.addAttribute("datas", datas);
 		model.addAttribute("total", total);
@@ -242,7 +242,7 @@ public class UiControllor {
 		return true;
 	}
 	/**
-	 * ÏîÄ¿Ã÷Ï¸ÁĞ±í
+	 * é¡¹ç›®æ˜ç»†åˆ—è¡¨
 	 * @param projectId
 	 * @param type
 	 * @param model
@@ -251,18 +251,18 @@ public class UiControllor {
 	@RequestMapping(value="/project/{projectId}/{type}",method=RequestMethod.GET)
 	public String detailList(@PathVariable int projectId,@PathVariable int type,Model model){
 		/*
-		 * Êı¾İĞèÒª
+		 * æ•°æ®éœ€è¦
 		 */
 		
 		dataSend(model);
 		ProjectInfo info = projectInfoDao.fetch(ProjectInfo.class, projectId);
 		/*
-		 * ²éÑ¯Ìõ¼ş
+		 * æŸ¥è¯¢æ¡ä»¶
 		 */
 		Set<Order> orders =  new LinkedHashSet<Order>();
 		orders.add(Order.desc("updateDate"));
 		/*
-		 * Ô¼ÊøÌõ¼ş
+		 * çº¦æŸæ¡ä»¶
 		 */
 		Set<Criterion> criterions = new LinkedHashSet<Criterion>();
 		criterions.add(Restrictions.eq("projectId", projectId));
@@ -275,7 +275,7 @@ public class UiControllor {
 		return "listProjectDetail";
 	}
 	/**
-	 * ÏÔÊ¾ÏîÄ¿Ã÷Ï¸¾ßÌåÄÚÈİ
+	 * æ˜¾ç¤ºé¡¹ç›®æ˜ç»†å…·ä½“å†…å®¹
 	 * @param detailId
 	 * @param projectDetail
 	 * @param model
@@ -284,7 +284,7 @@ public class UiControllor {
 	@RequestMapping(value="/project/detail/{detailId}",method=RequestMethod.GET)
 	public String showDetail(@PathVariable int detailId,Model model){
 		/*
-		 * Êı¾İĞèÒª
+		 * æ•°æ®éœ€è¦
 		 */
 		
 		dataSend(model);

@@ -10,13 +10,13 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * ÁÙÊ±ÎÄÕÂ±í
+ * ä¸´æ—¶æ–‡ç« è¡¨
  * @author zjf
  *
  */
 @Entity
 public class TempArticle {
-	//±àºÅ
+	//ç¼–å·
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
 	@GeneratedValue(generator = "generator")

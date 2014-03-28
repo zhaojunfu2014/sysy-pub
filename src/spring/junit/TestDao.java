@@ -21,8 +21,8 @@ public class TestDao extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void test1() throws Exception {
 		Article a = new Article();
-		a.setTitle("µÚÒ»ÆªÎÄÕÂ");
-		a.setContent("Á¢¿Ì¾ÍÉÏ¿ÎÁË¼¸·Ö¿ìÀÖµÄÊ±¼ä·´À¡¶àÉÙÁË¿ì½İ·½Ê½¿É¶ÁÁË·¿¼ÛÀ´¿´Ëµ´ó¼Ò·Ö¿ªÁËµÚÈı·½");
+		a.setTitle("ç¬¬ä¸€ç¯‡æ–‡ç« ");
+		a.setContent("ç«‹åˆ»å°±ä¸Šè¯¾äº†å‡ åˆ†å¿«ä¹çš„æ—¶é—´åé¦ˆå¤šå°‘äº†å¿«æ·æ–¹å¼å¯è¯»äº†æˆ¿ä»·æ¥çœ‹è¯´å¤§å®¶åˆ†å¼€äº†ç¬¬ä¸‰æ–¹");
 		a.setPubDate(new Date());
 		articleDao.save(a);
 //		menuDao.save(new Menu());

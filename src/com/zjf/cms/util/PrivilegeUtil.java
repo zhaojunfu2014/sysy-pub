@@ -12,8 +12,8 @@ import org.apache.commons.logging.LogFactory;
 import com.zjf.cms.entity.Staff;
 
 /**
- * È¨ÏŞÀ¹½Ø¹¤¾ß
- * @author ÕÔ¿¡·ò
+ * æƒé™æ‹¦æˆªå·¥å…·
+ * @author èµµä¿Šå¤«
  *
  * Aug 24, 2012
  */
@@ -25,7 +25,7 @@ public class PrivilegeUtil {
 	public static final String EXCEPT_SPLIT = ",";
 	private Log log = LogFactory.getLog(getClass());
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 * @param targetUri
 	 * @param privilege
 	 */
@@ -43,7 +43,7 @@ public class PrivilegeUtil {
 		this.req = req;
 	}
 	/**
-	 * ¼ì²âÈ¨ÏŞÊÇ·ñÄÜÍ¨¹ı
+	 * æ£€æµ‹æƒé™æ˜¯å¦èƒ½é€šè¿‡
 	 * @return
 	 */
 	public boolean check(){
@@ -51,18 +51,18 @@ public class PrivilegeUtil {
 		
 		for(String pri:userPrivileges){
 			/*
-			 * Èç¹ûÓÃ»§µÄÈ¨ÏŞ´ø*,ÇÒ²»´æÔÚexceptÓï·¨
+			 * å¦‚æœç”¨æˆ·çš„æƒé™å¸¦*,ä¸”ä¸å­˜åœ¨exceptè¯­æ³•
 			 */
 			if(pri.contains("*") && !pri.contains(EXCEPT)){
 				String privilege = pri.substring(0,pri.indexOf('*')-1);
 				if(targetUri.startsWith(privilege)){
-					log.debug("Í¨¹ı£º"+targetUri+"\t"+privilege);
+					log.debug("é€šè¿‡ï¼š"+targetUri+"\t"+privilege);
 					
 					return true;
 				}
 			}else if(pri.contains("*") && pri.contains(EXCEPT)){
 				/*
-				 * Èç¹ûÓÃ»§È¨ÏŞ´ø*£¬ÇÒ´æÔÚexceptÓï·¨
+				 * å¦‚æœç”¨æˆ·æƒé™å¸¦*ï¼Œä¸”å­˜åœ¨exceptè¯­æ³•
 				 */
 				String privilege = pri.substring(0,pri.indexOf('*')-1);
 				List<String> excepts = new ArrayList<String>();
@@ -78,17 +78,17 @@ public class PrivilegeUtil {
 							return false;
 						}
 					}
-					log.debug("Í¨¹ı£º"+targetUri+"\t");
+					log.debug("é€šè¿‡ï¼š"+targetUri+"\t");
 					return true;
 				}else{
 					access = false;
 				}
 			}else if(!pri.contains("*")){
 				/*
-				 * Ó²±àÂëÈ¨ÏŞ
+				 * ç¡¬ç¼–ç æƒé™
 				 */
 				if(targetUri.equals(pri)){
-					log.debug("Í¨¹ı£º"+targetUri+"\t"+pri);
+					log.debug("é€šè¿‡ï¼š"+targetUri+"\t"+pri);
 					return true;
 				}
 			}
@@ -96,8 +96,8 @@ public class PrivilegeUtil {
 		return access;
 	}
 	/**
-	 * ÓÃÔ±¹¤µÇÂ¼-
-	 * ½«staff¶ÔÏó´æÈëHttpSessionÖĞ
+	 * ç”¨å‘˜å·¥ç™»å½•-
+	 * å°†staffå¯¹è±¡å­˜å…¥HttpSessionä¸­
 	 * @param req
 	 * @param staff
 	 */
@@ -106,8 +106,8 @@ public class PrivilegeUtil {
 		session.setAttribute("loginUser", staff);
 	}
 	/**
-	 * ½«Ô±¹¤µÇ³ö-
-	 * ½«staff¶ÔÏóÒÆ³ı³öHttpSessionÖĞ
+	 * å°†å‘˜å·¥ç™»å‡º-
+	 * å°†staffå¯¹è±¡ç§»é™¤å‡ºHttpSessionä¸­
 	 * @param req
 	 * @param staff
 	 */
@@ -116,7 +116,7 @@ public class PrivilegeUtil {
 		session.removeAttribute("loginUser");
 	}
 	/**
-	 * ´ÓsessionÖĞÈ¡³öµ±Ç°µÇÂ¼µÄÔ±¹¤
+	 * ä»sessionä¸­å–å‡ºå½“å‰ç™»å½•çš„å‘˜å·¥
 	 * 
 	 * @return
 	 */
@@ -129,7 +129,7 @@ public class PrivilegeUtil {
 		return null;
 	}
 	/**
-	 * ÅĞ¶ÏÔ±¹¤ÊÇ·ñµÇÂ¼
+	 * åˆ¤æ–­å‘˜å·¥æ˜¯å¦ç™»å½•
 	 * @return
 	 */
 	public boolean isLogin(){

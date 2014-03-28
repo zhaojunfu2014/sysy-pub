@@ -28,8 +28,8 @@ import com.zjf.cms.entity.ProjectDetail;
 import com.zjf.cms.entity.ProjectInfo;
 
 /**
- * ÏîÄ¿¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * é¡¹ç›®æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 28, 2012
  */
@@ -41,7 +41,7 @@ public class ProjectControllor {
 	@Resource(name="projectDetailDao")
 	private ProjectDetailDao projectDetailDao;
 	/**
-	 * ÏîÄ¿·ÖÒ³
+	 * é¡¹ç›®åˆ†é¡µ
 	 * @return
 	 */
 	@RequestMapping(value="/list",method=RequestMethod.GET)
@@ -53,14 +53,14 @@ public class ProjectControllor {
 				firstIndex  = 0;
 		}finally{
 			/*
-			 * ²éÑ¯Ìõ¼ş
+			 * æŸ¥è¯¢æ¡ä»¶
 			 */
 			Set<Order> orders =  new LinkedHashSet<Order>();
 			orders.add(Order.desc("startDate"));
 			List<ProjectInfo> datas = projectInfoDao.getScrollData(ProjectInfo.class, firstIndex, 20, null, orders);
 			int total  = projectInfoDao.getTableSize(ProjectInfo.class, null);
 			/*
-			 * ´¦ÀíÏîÄ¿Íê³ÉÇé¿ö
+			 * å¤„ç†é¡¹ç›®å®Œæˆæƒ…å†µ
 			 */
 			for(ProjectInfo pjf:datas){
 				for(int t=1;t<=4;t++){
@@ -83,7 +83,7 @@ public class ProjectControllor {
 		return "admin/project/list";
 	}
 	/**
-	 * Ìí¼ÓÏîÄ¿-½çÃæ
+	 * æ·»åŠ é¡¹ç›®-ç•Œé¢
 	 * @return
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.GET)
@@ -93,7 +93,7 @@ public class ProjectControllor {
 		
 	}
 	/**
-	 * Ìí¼ÓÏîÄ¿
+	 * æ·»åŠ é¡¹ç›®
 	 * @return
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.POST)
@@ -102,7 +102,7 @@ public class ProjectControllor {
 		return "redirect:/admin/project/list";
 	}
 	/**
-	 * ±à¼­ÏîÄ¿-½çÃæ
+	 * ç¼–è¾‘é¡¹ç›®-ç•Œé¢
 	 * @param id
 	 * @param model
 	 * @return
@@ -114,7 +114,7 @@ public class ProjectControllor {
 		return "admin/project/edit";
 	}
 	/**
-	 * ±à¼­ÏîÄ¿
+	 * ç¼–è¾‘é¡¹ç›®
 	 * @param projectInfo
 	 * @return
 	 */
@@ -142,7 +142,7 @@ public class ProjectControllor {
 		
 	}
 	/**
-	 * É¾³ıÏîÄ¿
+	 * åˆ é™¤é¡¹ç›®
 	 * @param id
 	 * @return
 	 */
@@ -155,19 +155,19 @@ public class ProjectControllor {
 		return "redirect:"+referer;
 	}
 	/**
-	 * ÏîÄ¿Ã÷Ï¸ÁĞ±í
+	 * é¡¹ç›®æ˜ç»†åˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping(value="/detail/{projectId}/{type}",method=RequestMethod.GET)
 	public String detailList(@PathVariable int projectId,@PathVariable int type,Model model){
 		ProjectInfo info = projectInfoDao.fetch(ProjectInfo.class, projectId);
 		/*
-		 * ²éÑ¯Ìõ¼ş
+		 * æŸ¥è¯¢æ¡ä»¶
 		 */
 		Set<Order> orders =  new LinkedHashSet<Order>();
 		orders.add(Order.desc("updateDate"));
 		/*
-		 * Ô¼ÊøÌõ¼ş
+		 * çº¦æŸæ¡ä»¶
 		 */
 		Set<Criterion> criterions = new LinkedHashSet<Criterion>();
 		criterions.add(Restrictions.eq("projectId", projectId));
@@ -180,7 +180,7 @@ public class ProjectControllor {
 		return "admin/projectDetail/list";
 	}
 	/**
-	 * Ìí¼ÓÏîÄ¿Ã÷Ï¸
+	 * æ·»åŠ é¡¹ç›®æ˜ç»†
 	 * @return
 	 */
 	@RequestMapping(value="/detail/add/{projectId}/{type}",method=RequestMethod.POST)
@@ -192,7 +192,7 @@ public class ProjectControllor {
 		return "redirect:/admin/project/detail/"+projectId+"/"+type;
 	}
 	/**
-	 * ±à¼­ÏîÄ¿Ã÷Ï¸-½çÃæ
+	 * ç¼–è¾‘é¡¹ç›®æ˜ç»†-ç•Œé¢
 	 * @param projectId
 	 * @param type
 	 * @param projectDetail
@@ -205,7 +205,7 @@ public class ProjectControllor {
 		return "/admin/projectDetail/edit";
 	}
 	/**
-	 * ±à¼­ÏîÄ¿Ã÷Ï¸
+	 * ç¼–è¾‘é¡¹ç›®æ˜ç»†
 	 * @param projectId
 	 * @param type
 	 * @param projectDetail
@@ -222,7 +222,7 @@ public class ProjectControllor {
 		return "/admin/projectDetail/edit";
 	}
 	/**
-	 * ±ê×¢ÎªÒÑÍê³É
+	 * æ ‡æ³¨ä¸ºå·²å®Œæˆ
 	 * @param detailId
 	 * @param projectId
 	 * @param type
@@ -237,7 +237,7 @@ public class ProjectControllor {
 		return "redirect:/admin/project/detail/"+projectId+"/"+type;
 	}
 	/**
-	 * ±ê×¢ÎªÎ´Íê³É
+	 * æ ‡æ³¨ä¸ºæœªå®Œæˆ
 	 * @param detailId
 	 * @param projectId
 	 * @param type
@@ -252,7 +252,7 @@ public class ProjectControllor {
 		return "redirect:/admin/project/detail/"+projectId+"/"+type;
 	}
 	/**
-	 * Òş²ØÌõÄ¿
+	 * éšè—æ¡ç›®
 	 * @param detailId
 	 * @param projectId
 	 * @param type
@@ -267,7 +267,7 @@ public class ProjectControllor {
 		return "redirect:/admin/project/detail/"+projectId+"/"+type;
 	}
 	/**
-	 * ÏÔÊ¾ÌõÄ¿
+	 * æ˜¾ç¤ºæ¡ç›®
 	 * @param detailId
 	 * @param projectId
 	 * @param type
@@ -282,7 +282,7 @@ public class ProjectControllor {
 		return "redirect:/admin/project/detail/"+projectId+"/"+type;
 	}
 	/**
-	 * É¾³ıÃ÷Ï¸ÌõÄ¿
+	 * åˆ é™¤æ˜ç»†æ¡ç›®
 	 * @param detailId
 	 * @param projectId
 	 * @param type

@@ -19,39 +19,39 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * ²Ëµ¥ÊµÌå
- * @author ÕÔ¿¡·ò
+ * èœå•å®ä½“
+ * @author èµµä¿Šå¤«
  *
  * Aug 15, 2012
  */
 @Entity
 public class Menu {
-	//±àºÅ
+	//ç¼–å·
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;
-	//Ãû³Æ
+	//åç§°
 	@Column(name="name")
 	private String name;
-	//ÊÇ·ñÎª¸ù²Ëµ¥
+	//æ˜¯å¦ä¸ºæ ¹èœå•
 	@Column(name="isRoot")
 	private boolean isRoot;
-	//ÊÇ·ñ¿É¼û
+	//æ˜¯å¦å¯è§
 	@Column(name="visible")
 	private boolean visible;
-	//ÏÔÊ¾´ÎĞò
+	//æ˜¾ç¤ºæ¬¡åº
 	@Column(name="level")
 	private int level;
-	//×Ó²Ëµ¥
+	//å­èœå•
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="parent")
 	private List<Menu> childs;
-	//¸¸²Ëµ¥
+	//çˆ¶èœå•
 	@ManyToOne
 	@JoinColumn   
 	private Menu parent;
-	//²Ëµ¥ÖĞµÄÎÄÕÂ
+	//èœå•ä¸­çš„æ–‡ç« 
 	@OneToMany(mappedBy="menu")
 	@OrderBy("pubDate desc")
 	private List<Article> articles;
@@ -62,8 +62,8 @@ public class Menu {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@NotEmpty(message="²»ÄÜÎª¿Õ")
-	@Size(max=30,message="×î´ó³¤¶ÈÎª30")
+	@NotEmpty(message="ä¸èƒ½ä¸ºç©º")
+	@Size(max=30,message="æœ€å¤§é•¿åº¦ä¸º30")
 	public String getName() {
 		return name;
 	}

@@ -9,19 +9,19 @@ import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 /**
- * »ù´¡dao½Ó¿Ú
- * @author ÕÔ¿¡·ò
+ * åŸºç¡€daoæ¥å£
+ * @author èµµä¿Šå¤«
  *
  * Aug 15, 2012
  */
 @Repository
 public interface BaseDao {
 	/**
-	 * ³Ö¾Ã»¯¶ÔÏó
+	 * æŒä¹…åŒ–å¯¹è±¡
 	 */
 	public void save(Object t);
 	/**
-	 * ÀÁ¼ÓÔØ¶ÔÏó
+	 * æ‡’åŠ è½½å¯¹è±¡
 	 * @param <T>
 	 * @param className
 	 * @param id
@@ -29,29 +29,29 @@ public interface BaseDao {
 	 */
 	public <T> T load(Class<T> className,Serializable id);
 	/**
-	 * ¸üĞÂ¶ÔÏó
+	 * æ›´æ–°å¯¹è±¡
 	 */
 	public void update(Object t);
 	/**
-	 * É¾³ıµ¥¸ö¶ÔÏó
+	 * åˆ é™¤å•ä¸ªå¯¹è±¡
 	 * @param object
 	 */
 	public void delete(Object object);
 	/**
-	 * É¾³ı¶à¸ö¶ÔÏó
+	 * åˆ é™¤å¤šä¸ªå¯¹è±¡
 	 * @param objects
 	 */
 	public void deletes(Object[] objects);
 	/**
-	 * ²éÑ¯ÌõÄ¿-by id
+	 * æŸ¥è¯¢æ¡ç›®-by id
 	 */
 	public <T> T fetch(Class<T> className,Serializable id);
 	/**
-	 * ²éÑ¯ËùÓĞµÄÌõÄ¿
+	 * æŸ¥è¯¢æ‰€æœ‰çš„æ¡ç›®
 	 */
 	public <T> List<T> fetchAll(Class<T> className); 
 	/**
-	 * »ñÈ¡Ä³±í³¤¶È
+	 * è·å–æŸè¡¨é•¿åº¦
 	 * @param className
 	 * @return
 	 */
@@ -59,7 +59,7 @@ public interface BaseDao {
 	public Integer getTableSize(Class className,Set<Criterion> criterions);
 	
 	/**
-	 * »ñÈ¡Êı¾İ¿â·ÖÒ³Ô¼ÊøÊı¾İ
+	 * è·å–æ•°æ®åº“åˆ†é¡µçº¦æŸæ•°æ®
 	 * @param <T>
 	 * @param className
 	 * @param firstIndex
@@ -69,7 +69,7 @@ public interface BaseDao {
 	 */
 	public <T> List<T> getScrollData(Class<T> className,Integer firstIndex,Integer maxResult,Set<Criterion> criterions);
 	/**
-	 * »ñÈ¡Êı¾İ¿âÔ¼ÊøÊı¾İ
+	 * è·å–æ•°æ®åº“çº¦æŸæ•°æ®
 	 * @param <T>
 	 * @param className
 	 * @param criterions
@@ -77,7 +77,7 @@ public interface BaseDao {
 	 */
 	public <T> List<T> getScrollData(Class<T> className,Set<Criterion> criterions);
 	/**
-	 * »ñÈ¡Êı¾İ¿âÔ¼ÊøÅÅĞò
+	 * è·å–æ•°æ®åº“çº¦æŸæ’åº
 	 * @param <T>
 	 * @param className
 	 * @param firstIndex

@@ -31,8 +31,8 @@ import com.zjf.cms.util.ConfigUtil;
 import com.zjf.cms.util.UploadUtil;
 
 /**
- * ÎÄ¼şÉÏ´«¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * æ–‡ä»¶ä¸Šä¼ æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 22, 2012
  */
@@ -43,7 +43,7 @@ public class AttachmentControllor {
 	private AttachmentDao attachmentDao;
 	private Log log = LogFactory.getLog(getClass());
 	/**
-	 * ÉÏ´«ÎÄ¼ş
+	 * ä¸Šä¼ æ–‡ä»¶
 	 * @param file
 	 * @return
 	 */
@@ -53,18 +53,18 @@ public class AttachmentControllor {
 		String type = u.getContentType();
 		ConfigUtil util = new ConfigUtil();
 		/*
-		 * Ğ£ÑéÉÏ´«ÀàĞÍ
+		 * æ ¡éªŒä¸Šä¼ ç±»å‹
 		 */
 		if(!util.getUploadType().contains(type)){
 			log.debug(type+"---");
-			model.addAttribute("message", "²»ÔÊĞíÉÏ´«¸ÃÀàĞÍ");
+			model.addAttribute("message", "ä¸å…è®¸ä¸Šä¼ è¯¥ç±»å‹");
 			return "error";
 		}
 		UploadUtil uploadUtil = new UploadUtil(u,req,"attachment");
 		
 		String path = null;
 		/*
-		 * ½«ÎÄ¼ş´æÈëÎÄ¼şÏµÍ³
+		 * å°†æ–‡ä»¶å­˜å…¥æ–‡ä»¶ç³»ç»Ÿ
 		 */
 		try {
 			path = uploadUtil.saveToFileSystem();
@@ -73,7 +73,7 @@ public class AttachmentControllor {
 			e.printStackTrace();
 		}
 		/*
-		 * ½«¸½¼ş¶ÔÏó³Ö¾Ã»¯µ½Êı¾İ¿â
+		 * å°†é™„ä»¶å¯¹è±¡æŒä¹…åŒ–åˆ°æ•°æ®åº“
 		 */
 		Attachment attachment = new Attachment();
 		
@@ -84,7 +84,7 @@ public class AttachmentControllor {
 		attachment.setSize(u.getSize());
 		attachmentDao.save(attachment);
 		/*
-		 * ½«½üÆÚËùÉÏ´«µÄ¸½¼şÁĞ±í´æÈësession
+		 * å°†è¿‘æœŸæ‰€ä¸Šä¼ çš„é™„ä»¶åˆ—è¡¨å­˜å…¥session
 		 */
 		HttpSession session = req.getSession();
 		List<Attachment> attachments = (List<Attachment>) session.getAttribute("attachments");
@@ -100,7 +100,7 @@ public class AttachmentControllor {
 		
 	}
 	/**
-	 * ÉÏ´«ÎÄ¼ş-½çÃæ
+	 * ä¸Šä¼ æ–‡ä»¶-ç•Œé¢
 	 * @param model
 	 * @return
 	 */
@@ -110,7 +110,7 @@ public class AttachmentControllor {
 		
 	}
 	/**
-	 * É¾³ıÎÄ¼ş
+	 * åˆ é™¤æ–‡ä»¶
 	 * @param model
 	 * @return
 	 */
@@ -118,19 +118,19 @@ public class AttachmentControllor {
 	public String delete(@PathVariable long id,Model model,HttpServletRequest req,Integer action){
 		
 		/*
-		 * ´ÓÊı¾İ¿âÖĞÉ¾³ı
+		 * ä»æ•°æ®åº“ä¸­åˆ é™¤
 		 */
 		Attachment a = attachmentDao.fetch(Attachment.class, id);
 		String path = a.getPath();
 		attachmentDao.delete(a);
 		
 		/*
-		 * ´ÓÎÄ¼şÏµÍ³ÖĞÉ¾³ı
+		 * ä»æ–‡ä»¶ç³»ç»Ÿä¸­åˆ é™¤
 		 */
 		UploadUtil util = new UploadUtil(null,req,null);
 		util.deleteFromFileSystem(path);
 		/*
-		 * ½«sessionÖĞµÄ»º´æÉ¾³ı
+		 * å°†sessionä¸­çš„ç¼“å­˜åˆ é™¤
 		 */
 		HttpSession session = req.getSession();
 		List<Attachment> attachments = (List<Attachment>) session.getAttribute("attachments");
@@ -152,7 +152,7 @@ public class AttachmentControllor {
 		
 	}
 	/**
-	 * ¸½¼şÁĞ±í
+	 * é™„ä»¶åˆ—è¡¨
 	 * @param req
 	 * @param model
 	 * @return
@@ -166,7 +166,7 @@ public class AttachmentControllor {
 			firstIndex  = 0;
 		}finally{
 			/*
-			 * ²éÑ¯Ìõ¼ş
+			 * æŸ¥è¯¢æ¡ä»¶
 			 */
 			Set<Order> orders =  new LinkedHashSet<Order>();
 			orders.add(Order.desc("uploadDate"));

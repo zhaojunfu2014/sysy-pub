@@ -26,8 +26,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import com.zjf.cms.dao.MenuDao;
 import com.zjf.cms.entity.Menu;
 /**
- * ²Ëµ¥µÄ¿ØÖÆÆ÷
- * @author ÕÔ¿¡·ò
+ * èœå•çš„æ§åˆ¶å™¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 15, 2012
  */
@@ -38,7 +38,7 @@ public class MenuControllor {
 	private MenuDao menuDao;
 	private Log log = LogFactory.getLog(getClass());
 	/**
-	 * ÏÔÊ¾²Ëµ¥ÁĞ±í
+	 * æ˜¾ç¤ºèœå•åˆ—è¡¨
 	 * @param model
 	 * @return
 	 */
@@ -53,7 +53,7 @@ public class MenuControllor {
 		return "admin/menu/list";
 	}
 	/**
-	 * ¸üĞÂ²Ëµ¥-½çÃæ
+	 * æ›´æ–°èœå•-ç•Œé¢
 	 * @param id
 	 * @param model
 	 * @return
@@ -65,7 +65,7 @@ public class MenuControllor {
 		return "admin/menu/edit";
 	}
 	/**
-	 * ¸üĞÂ²Ëµ¥
+	 * æ›´æ–°èœå•
 	 * @param id
 	 * @param model
 	 * @return
@@ -85,7 +85,7 @@ public class MenuControllor {
 	}
 	
 	/**
-	 * Ìí¼ÓĞÂ²Ëµ¥
+	 * æ·»åŠ æ–°èœå•
 	 * @param menu
 	 * @return
 	 */
@@ -100,7 +100,7 @@ public class MenuControllor {
 		return InternalResourceViewResolver.REDIRECT_URL_PREFIX+"/admin/menu/list";
 	}
 	/**
-	 * Ìí¼ÓĞÂ²Ëµ¥-½çÃæ
+	 * æ·»åŠ æ–°èœå•-ç•Œé¢
 	 * @param menu
 	 * @return
 	 */
@@ -110,7 +110,7 @@ public class MenuControllor {
 		return "admin/menu/add";
 	}
 	/**
-	 * Ìí¼Ó×Ó²Ëµ¥-½çÃæ
+	 * æ·»åŠ å­èœå•-ç•Œé¢
 	 * @param menu
 	 * @return
 	 */
@@ -121,7 +121,7 @@ public class MenuControllor {
 		return "admin/menu/addSub";
 	}
 	/**
-	 * Ìí¼Ó×Ó²Ëµ¥
+	 * æ·»åŠ å­èœå•
 	 * @param menu
 	 * @return
 	 */
@@ -138,7 +138,7 @@ public class MenuControllor {
 		return InternalResourceViewResolver.REDIRECT_URL_PREFIX+"/admin/menu/list";
 	}
 	/**
-	 * ×Ó²Ëµ¥ÁĞ±í
+	 * å­èœå•åˆ—è¡¨
 	 * @param id
 	 * @param model
 	 * @return
@@ -152,7 +152,7 @@ public class MenuControllor {
 		return "admin/menu/listSub";
 	}
 	/**
-	 * Òş²Ø²Ëµ¥
+	 * éšè—èœå•
 	 * @param id
 	 * @return
 	 */
@@ -166,7 +166,7 @@ public class MenuControllor {
 		return "redirect:"+referer;
 	}
 	/**
-	 * ÏÔÊ¾²Ëµ¥
+	 * æ˜¾ç¤ºèœå•
 	 * @param id
 	 * @return
 	 */
@@ -180,7 +180,7 @@ public class MenuControllor {
 		return "redirect:"+referer;
 	}
 	/**
-	 * É¾³ı²Ëµ¥
+	 * åˆ é™¤èœå•
 	 * @param id
 	 * @return
 	 */

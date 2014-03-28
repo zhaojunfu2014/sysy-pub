@@ -2,8 +2,8 @@ package com.zjf.cms.util;
 
 import java.security.MessageDigest;
 /**
- * MD5Ëã·¨¹¤¾ß
- * @author ÕÔ¿¡·ò
+ * MD5ç®—æ³•å·¥å…·
+ * @author èµµä¿Šå¤«
  * @date 2012-2-8
  */
 public class MD5Util {

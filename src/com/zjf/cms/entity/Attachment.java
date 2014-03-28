@@ -13,36 +13,36 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * ¸½¼ş
- * @author ÕÔ¿¡·ò
+ * é™„ä»¶
+ * @author èµµä¿Šå¤«
  *
  * Aug 22, 2012
  */
 @Entity
 public class Attachment {
-	//±àºÅ
+	//ç¼–å·
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
 	private long id;
-	//Ãû³Æ
+	//åç§°
 	@Column(name="name")
 	private String name;
-	//Â·¾¶
+	//è·¯å¾„
 	@Column(name="path")
 	private String path;
-	//¸½¼şÀàĞÍ
+	//é™„ä»¶ç±»å‹
 	@Column(name="type")
 	private String type;
-	//ÎÄ¼ş´óĞ¡-×Ö½Ú
+	//æ–‡ä»¶å¤§å°-å­—èŠ‚
 	@Column(name="size")
 	private long size;
-	//ËùÊôÎÄÕÂ
+	//æ‰€å±æ–‡ç« 
 	@ManyToOne
 	@JoinColumn
 	private Article article;
-	//ÉÏ´«Ê±¼ä
+	//ä¸Šä¼ æ—¶é—´
 	private Date uploadDate = new Date();
 	
 	public long getId() {

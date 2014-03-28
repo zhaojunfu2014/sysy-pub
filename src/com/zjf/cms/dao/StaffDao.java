@@ -3,8 +3,8 @@ package com.zjf.cms.dao;
 import com.zjf.cms.entity.Staff;
 
 /**
- * Ô±¹¤Êı¾İ·ÃÎÊ½Ó¿Ú
- * @author ÕÔ¿¡·ò
+ * å‘˜å·¥æ•°æ®è®¿é—®æ¥å£
+ * @author èµµä¿Šå¤«
  *
  * Aug 24, 2012
  */

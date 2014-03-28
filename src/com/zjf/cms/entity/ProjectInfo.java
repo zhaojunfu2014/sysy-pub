@@ -11,48 +11,48 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * ÏîÄ¿¼à¶½±í
- * @author ÕÔ¿¡·ò
+ * é¡¹ç›®ç›‘ç£è¡¨
+ * @author èµµä¿Šå¤«
  *
  * Aug 28, 2012
  */
 @Entity
 public class ProjectInfo {
-	//±àºÅ
+	//ç¼–å·
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;
-	//ÏîÄ¿±àÂë
+	//é¡¹ç›®ç¼–ç 
 	@Column(name="code")
 	private String code;
-	//ÏîÄ¿Ãû³Æ
+	//é¡¹ç›®åç§°
 	@Column(name="name")
 	private String name;
-	//ÖØÒªµ¥ÔªºË±¸
+	//é‡è¦å•å…ƒæ ¸å¤‡
 	@Column(name="zydyhb")
 	private int zydyhb;
-	//·Ö²¿ºË±¸
+	//åˆ†éƒ¨æ ¸å¤‡
 	@Column(name="fbhb")
 	private int fbhb;
-	//µ¥Î»¹¤³ÌÍâ¹ÛÖÊÁ¿ºË¶¨
+	//å•ä½å·¥ç¨‹å¤–è§‚è´¨é‡æ ¸å®š
 	@Column(name="dwgcwgzlhd")
 	private int dwgcwgzlhd;
-	//µ¥Î»ºË¶¨
+	//å•ä½æ ¸å®š
 	@Column(name="dwhd")
 	private int dwhd;
-	//ÖÊÁ¿¼à¶½Í¨±¨
+	//è´¨é‡ç›‘ç£é€šæŠ¥
 	@Column(name="zljdtb")
 	private int zljdtb;
-	//¿ªÊ¼Ê±¼ä
+	//å¼€å§‹æ—¶é—´
 	@Column(name="startDate")
 	private Date startDate =  new Date();
-	//½áÊøÊ±¼ä
+	//ç»“æŸæ—¶é—´
 	@Column(name="endDate")
 	private Date endDate;
 	/*
-	 * ÏîÄ¿Ã÷Ï¸µÄÍê³ÉÇé¿ö
+	 * é¡¹ç›®æ˜ç»†çš„å®Œæˆæƒ…å†µ
 	 */
 	private Boolean type1 =false;
 	private Boolean type2=false;

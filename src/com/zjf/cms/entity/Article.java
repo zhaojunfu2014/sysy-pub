@@ -18,41 +18,41 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 /**
- * ÎÄÕÂÊµÌå
- * @author ÕÔ¿¡·ò
+ * æ–‡ç« å®ä½“
+ * @author èµµä¿Šå¤«
  *
  * Aug 17, 2012
  */
 @Entity
 public class Article {
-	//±àºÅ
+	//ç¼–å·
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
 	private long id;
-	//±êÌâ
+	//æ ‡é¢˜
 	@Column
 	private String title;
-	//ÄÚÈİ
+	//å†…å®¹
 	@Column(length=99999999)
 	private String content;
-	//ÏÂÔØÀàĞÍ£¨ÎÄÕÂ×÷Îª×ÊÁÏÏÂÔØÊ±ÓĞÒâÒå£©
+	//ä¸‹è½½ç±»å‹ï¼ˆæ–‡ç« ä½œä¸ºèµ„æ–™ä¸‹è½½æ—¶æœ‰æ„ä¹‰ï¼‰
 	@Column
 	private String downloadType;
 	@Column
 	private Integer count = 0 ;
-	//·¢±íÊ±¼ä
+	//å‘è¡¨æ—¶é—´
 	@Column
 	private Date pubDate = new Date();
-	//ËùÊô²Ëµ¥
+	//æ‰€å±èœå•
 	@ManyToOne
 	@JoinColumn
 	private Menu menu;
-	//ËùÉÏ´«µÄ¸½¼ş
+	//æ‰€ä¸Šä¼ çš„é™„ä»¶
 	@OneToMany(cascade=CascadeType.REMOVE,mappedBy="article")
 	private List<Attachment> attachments;
-	//¿É¼ûĞÔ
+	//å¯è§æ€§
 	@Column
 	private Boolean visible = true;
 	public long getId() {

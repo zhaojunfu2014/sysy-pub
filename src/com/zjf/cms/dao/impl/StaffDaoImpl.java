@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.zjf.cms.dao.StaffDao;
 import com.zjf.cms.entity.Staff;
 /**
- * Ô±¹¤Êı¾İ·ÃÎÊÊµÏÖ
- * @author ÕÔ¿¡·ò
+ * å‘˜å·¥æ•°æ®è®¿é—®å®ç°
+ * @author èµµä¿Šå¤«
  *
  * Aug 24, 2012
  */
@@ -22,7 +22,7 @@ import com.zjf.cms.entity.Staff;
 public class StaffDaoImpl extends BaseDaoImpl implements StaffDao {
 	
 	/**
-	 * ÓÃÓÃ»§Ãû²éÕÒ
+	 * ç”¨ç”¨æˆ·åæŸ¥æ‰¾
 	 */
 	public Staff fetchByUsername(String username) {
 		Set<Criterion> criterions = new LinkedHashSet<Criterion>();
