@@ -199,45 +199,21 @@ function traceBypb(){
 		 alert('请输入产品编码和批次号');
 		 return;
 	 }
-	 $.ajax({
-			url : '../sysy-system/traceController.do?traceQuery',
-			type : 'post',
-			data : {
-				'pno':pno,
-				'bno':bno
-			},
-			cache : false,
-			success : function(data) {
-				var d = $.parseJSON(data);
-				var count = d.count;
-				if(count==0){
-					alert("没有查询到相关产品");
-					return;
-				}
-				var prdMap = d.prdMap;
-				var prdMaterial = d.prdMaterial;
-				//alert(JSON.stringify(d));
-				var tp = $("#reportTp").html();
-				for(var x in prdMap){
-					tp = tp.replace(":"+x,prdMap[x]);
-				}
-				var yl = "";
-				for(var i =0;i<prdMaterial.length;i++){
-					var m_no = prdMaterial[i]['m_no'];
-					var m_batch = prdMaterial[i]['m_batch'];
-					var m_name = prdMaterial[i]['m_name'];
-					var msize = prdMaterial[i]['msize'];
-					yl += m_name+msize+"<br>";
-				}
-				tp = tp.replace(":yl",yl);
-				$("#reportDiv").html(tp);
-				
-			}
-		});
+	 var url = "../sysy-system/traceController.do?query";
+	 url+="&pno="+pno;
+	 url+="&bno="+bno;
+	 window.open(url);
 	 return false;
 }
 function traceBysy(){
 	 var sno= $("[name='sno']").val();
+	 if(!sno){
+		 alert('请输入溯源码');
+		 return;
+	 }
+	 var url = "../sysy-system/traceController.do?query";
+	 url+="&sno="+sno;
+	 window.open(url);
 	 return false;
 }
 </script>
